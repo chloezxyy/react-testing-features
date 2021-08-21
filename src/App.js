@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React from "react";
+import DropDown from "./pages/DropDown";
+import TextInput from "./pages/TextInput";
+import DateComponent from "./pages/Date";
+import StateComponent from "./pages/StateComponent";
+import ParentComponent from "./pages/ParentComponent";
+import TestElements from "./pages/TestElements";
+import TestRedux from "./pages/TestRedux";
+import CounterProvider from "./pages/TextContext";
+import { Counter } from "./pages/TextContext";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { reducer } from "./pages/store/reducer";
+
+const store = createStore(reducer);
+
+// https://www.freecodecamp.org/news/8-simple-steps-to-start-testing-react-apps-using-react-testing-library-and-jest/#5-testing-react-redux
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Router>
+    //   <Route exact path="/" component={Self} />
+    //   <Route exact path="/work" component={Work} />
+    // </Router>
+    <>
+      {/* <DropDown /> */}
+      {/* <TextInput /> */}
+      {/* <DateComponent /> */}
+      {/* <StateComponent /> */}
+      {/* <ParentComponent /> */}
+      {/* <TestElements /> */}
+
+      <Provider store={store}>
+        <TestRedux />
+      </Provider>
+
+      {/* <CounterProvider /> */}
+    </>
   );
 }
 
